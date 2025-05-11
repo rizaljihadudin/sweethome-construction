@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
-import {default as AboutSection} from '../layout/About'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
+import {default as AboutSection} from './layout/About'
 import TeamImg1 from '../../assets/images/team1.jpg'
 import TeamImg2 from '../../assets/images/team2.jpg'
-import Hero from '../layout/Hero'
+import Hero from './layout/Hero'
 
 const contents = {
     preHeading: 'Quality. Intregity. Value.',

@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
-import Hero from '../layout/Hero'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
+import Hero from './layout/Hero'
 import ServiceImg from '../../assets/images/construction1.jpg'
 
 const contents = {
