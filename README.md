@@ -1,4 +1,4 @@
-# 🏗️ SweetHome Construction Company Profile Website
+# 🏗️ SweetHome Construction
 
 
 This is a **Company Profile Website** built with a **separated frontend-backend architecture** using:
