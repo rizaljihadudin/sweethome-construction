@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/frontend/Home';
@@ -8,6 +7,10 @@ import Services from './components/frontend/Services';
 import Projects from './components/frontend/Projects';
 import Blogs from './components/frontend/Blogs';
 import Contact from './components/frontend/Contact';
+import Login from './components/backend/Login';
+import { ToastContainer} from 'react-toastify';
+import Dashboard from './components/backend/Dashboard';
+import RequireAuth from './components/frontend/layout/RequireAuth';
 
 function App() {
 
@@ -21,8 +24,18 @@ function App() {
                 <Route path='/projects' element={<Projects />} />
                 <Route path='/blogs' element={<Blogs />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/admin/login' element={<Login />} />
+                <Route path='/admin/dashboard' element={
+                    <RequireAuth>
+                        <Dashboard />
+                    </RequireAuth>
+                } />
             </Routes>
+            
         </BrowserRouter>
+        <ToastContainer 
+          position="top-right"
+        />
     </>
   )
 }
