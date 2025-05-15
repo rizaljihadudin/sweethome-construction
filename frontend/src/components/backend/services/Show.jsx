@@ -5,6 +5,7 @@ import Sidebar from '../layout/Sidebar'
 import { baseUrl } from '../../../config'
 import { token } from '../../../config'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Show = () => {
 
@@ -27,6 +28,32 @@ const Show = () => {
         if(result.status == true){
             setServices(result.data);
         }
+    }
+
+    const handleDelete = async (id) => {
+        const confirm = window.confirm('Are you sure you want to delete this service?');
+
+        if(confirm){
+            const res = await fetch(`${baseUrl}/services/${id}`,{
+                method : 'DELETE',
+                headers : {
+                    'Content-type' : 'application/json',
+                    'Accept' : 'application/json',
+                    'Authorization' : `Bearer ${token()}`
+                }
+            });
+
+            const result = await res.json();
+
+            if(result.status == true){
+                const newServices = services.filter(service => service.id !== id);
+                setServices(newServices);
+                toast.success(result.message);
+            }else{
+                toast.error(result.message);
+            }
+        }
+        
     }
 
     useEffect(() => {
@@ -77,10 +104,12 @@ const Show = () => {
                                                                 }
                                                             </td>
                                                             <td>
-                                                                <Link to={`/admin/services/${service.id}`} className={'btn btn-primary btn-sm'}>
+                                                                <Link to={`/admin/services/edit/${service.id}`} className={'btn btn-primary btn-sm'}>
                                                                     Edit
                                                                 </Link>
-                                                                {/* <a href="#" className='btn btn-danger ms-2'>Delete</a> */}
+                                                               <Link onClick={() => handleDelete(service.id)} className={'btn btn-danger btn-sm ms-2'}>
+                                                                    Delete
+                                                                </Link>
                                                             </td>
                                                         </tr>
                                                     ))

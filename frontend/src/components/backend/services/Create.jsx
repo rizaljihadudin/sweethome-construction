@@ -13,6 +13,8 @@ const Create = ({placeholder}) => {
     // JoditEditor
     const editor = useRef(null);
 	const [content, setContent] = useState('');
+    const [isDisable, setIsDisable] = useState(false);
+    const [imageId, setImageId] = useState(null);
 
     const config = useMemo(() => ({
 			readonly: false, // all options from https://xdsoft.net/jodit/docs/,
@@ -31,7 +33,7 @@ const Create = ({placeholder}) => {
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        const newData = {...data, 'content':content}
+        const newData = {...data, 'content':content, "imageId":imageId};
         const res = await fetch(`${baseUrl}/services`,{
             method : 'POST',
             headers : {
@@ -53,6 +55,31 @@ const Create = ({placeholder}) => {
         }
     }
 
+    const handleFile = async (e) => {
+        setIsDisable(true);
+        const formData = new FormData();
+        const file = e.target.files[0];
+        formData.append('image', file);
+
+        await fetch(`${baseUrl}/temp-images`,{
+            method : 'POST',
+            headers : {
+                'Accept' : 'application/json',
+                'Authorization' : `Bearer ${token()}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result.status == false){
+                toast.error(result.errors.image[0]);
+            }else{
+                setImageId(result.data.id);
+                setIsDisable(false);
+            }
+        }); 
+    }
+
     return (
         <>
             <Header/>
@@ -69,7 +96,9 @@ const Create = ({placeholder}) => {
                                 <div className="card shadow border-0">
                                     <div className="card-body p-4">
                                         <div className="d-flex justify-content-between">
-                                            <h4 className='h5'>Create Services</h4>
+                                            <h4 className='h5'>
+                                                <span>Services</span> / Create
+                                            </h4>
                                             <Link to={"/admin/services"} className="btn btn-primary">
                                                 Back
                                             </Link>
@@ -123,8 +152,13 @@ const Create = ({placeholder}) => {
                                                     config={config}
                                                     tabIndex={1} // tabIndex of textarea
                                                     onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                                                    onChange={newContent => {}}
+                                                    // onChange={newContent => {}}
                                                 />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="" className='form-label'>Image</label>
+                                                <br />
+                                                <input onChange={handleFile} type="file" />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="" className='form-label'>Status</label>
@@ -139,7 +173,7 @@ const Create = ({placeholder}) => {
                                                 </select>
                                             </div>
 
-                                            <button className='btn btn-primary'>Submit</button>
+                                            <button disabled={isDisable} className='btn btn-primary'>Submit</button>
                                         </form>
                                     </div>
                                 </div>
