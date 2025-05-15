@@ -95,6 +95,12 @@ a{
 }
 
 header{
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // z-index: 1000;
+    // background-color: $text-white;
     nav{
         .nav-link{
             text-transform: uppercase;
@@ -359,5 +365,10 @@ footer{
             }
         }
     }
+}
+
+.active {
+    color: $primary-color !important;
+    font-weight: 500 !important;
 }
 

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     const { logout } = useContext(AuthContext);
@@ -16,8 +17,18 @@ const Sidebar = () => {
                 <div className="card-body p-4 sidebar">
                     <h4>Sidebar</h4>
                     <ul>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li>
+                            <NavLink to={'/admin/dashboard'}>
+                                Dashboard
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/admin/services'} className={
+                                ({ isActive }) => isActive ? 'active' : ''
+                            }>
+                                Services
+                            </NavLink>
+                        </li>
                         <li><a href="#">Projects</a></li>
                         <li><a href="#">Articles</a></li>
                         <li>
