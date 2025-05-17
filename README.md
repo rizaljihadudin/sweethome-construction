@@ -23,6 +23,7 @@ This is a **Company Profile Website** built with a **separated frontend-backend 
 
 ### ✅ Backend (Laravel)
 - Admin panel for content management
+- API for Services (CRUD)
 
 ---
 
