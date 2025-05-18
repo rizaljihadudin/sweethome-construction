@@ -20,6 +20,9 @@ This is a **Company Profile Website** built with a **separated frontend-backend 
 ### ✅ Frontend (React.js)
 - Interactive landing page
 - About the company section
+- Blogs section
+- Services section
+- Contact section
 
 ### ✅ Backend (Laravel)
 - Admin panel for content management
