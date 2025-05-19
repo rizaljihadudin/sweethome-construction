@@ -22,9 +22,6 @@ const Show = () => {
         });
 
         const result = await res.json();
-
-        console.log(result);
-
         if(result.status == true){
             setServices(result.data);
         }

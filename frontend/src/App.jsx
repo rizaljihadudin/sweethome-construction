@@ -41,9 +41,14 @@ function App() {
 
                 {/* Nested Route */}
                 <Route element={<RequireAuth />}>
+                    {/* Route yang awalannya admin */}
                     <Route path='/admin'>
+                        {/* ..Child dari admin */}
+                        {/* Dashboard */}
                         <Route path='dashboard' element={<Dashboard />} />
+                        {/* Route yang awalannya services */}
                         <Route path='services'>
+                            {/* ..Child dari services */}
                             {/* Default index, show data services */}
                             <Route index element={<ShowServices />} />
                             {/* Menu Edit services */}
