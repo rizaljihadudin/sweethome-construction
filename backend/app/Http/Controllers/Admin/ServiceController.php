@@ -151,12 +151,12 @@ class ServiceController extends Controller
                 'message'   => 'Validation Error'
             ]);
        }else{
-           $service->title        = $request->title;
-           $service->slug         = Str::slug($request->slug);
-           $service->short_desc   = $request->short_desc;
-           $service->content      = $request->content;
-           $service->status       = $request->status;
-           $service->save();
+            $service->title        = $request->title;
+            $service->slug         = Str::slug($request->slug);
+            $service->short_desc   = $request->short_desc;
+            $service->content      = $request->content;
+            $service->status       = $request->status;
+            $service->save();
 
             #save temp Image
             if($request->imageId){
