@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
@@ -28,6 +29,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     #Service Routes
     Route::resource('services', ServiceController::class);
+
+    #Project Routes
+    Route::resource('projects', ProjectController::class);
 
     #Temp Image Routes
     Route::post('temp-images', [TempImageController::class, 'store']);
