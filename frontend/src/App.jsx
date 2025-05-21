@@ -17,6 +17,11 @@ import { default as ShowServices } from './components/backend/services/Show';
 import { default as EditServices } from './components/backend/services/Edit';
 import { default as CreateService } from './components/backend/services/Create';
 
+// Projects
+import { default as ShowProjects } from './components/backend/projects/Show';
+import { default as EditProjects } from './components/backend/projects/Edit';
+import { default as CreateProject } from './components/backend/projects/Create';
+
 function App() {
 
   return (
@@ -55,6 +60,17 @@ function App() {
                             <Route path='edit/:id' element={<EditServices />} />
                             {/* Menu Create Service */}
                             <Route path='create' element={<CreateService />} />
+                        </Route>
+
+                        {/* Route yang awalannya projects */}
+                        <Route path='projects'>
+                            {/* ..Child dari services */}
+                            {/* Default index, show data services */}
+                            <Route index element={<ShowProjects />} />
+                            {/* Menu Edit services */}
+                            <Route path='edit/:id' element={<EditProjects />} />
+                            {/* Menu Create Service */}
+                            <Route path='create' element={<CreateProject />} />
                         </Route>
                     </Route>
                 </Route>
