@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
+use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\ServiceController as FrontServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,10 @@ Route::post('auth', [AuthController::class, 'authenticate']);
 #GET DATA FRONT SERVICES
 Route::get('get-services', [FrontServiceController::class, 'index']);
 Route::get('get-latest-services', [FrontServiceController::class, 'latestServices']);
+
+#GET DATA FRONT PROJECTS
+Route::get('get-projects', [FrontProjectController::class, 'index']);
+Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
 
 
 
