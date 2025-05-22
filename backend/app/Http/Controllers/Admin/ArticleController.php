@@ -228,6 +228,14 @@ class ArticleController extends Controller
                 'message'   => 'Article Not Found'
             ]);
         }else{
+
+            #delete Article image
+            $oldImage   = $article->image;
+            if($oldImage != ''){
+                File::delete(public_path('uploads/articles/large/'.$oldImage));
+                File::delete(public_path('uploads/articles/small/'.$oldImage));
+            }
+
             $article->delete();
             return response()->json([
                 'success'   => true,
