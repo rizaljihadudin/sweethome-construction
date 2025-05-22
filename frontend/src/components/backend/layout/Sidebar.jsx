@@ -36,7 +36,13 @@ const Sidebar = () => {
                                 Projects
                             </NavLink>
                         </li>
-                        <li><a href="#">Articles</a></li>
+                        <li>
+                             <NavLink to={'/admin/articles'} className={
+                                ({ isActive }) => isActive ? 'active' : ''
+                            }>
+                                Articles
+                            </NavLink>
+                        </li>
                         <li>
                             <button onClick={handleClick} className='btn btn-primary mt-4'>Logout</button>
                         </li>
