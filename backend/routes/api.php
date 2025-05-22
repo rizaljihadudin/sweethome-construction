@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
+use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\ServiceController as FrontServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +21,10 @@ Route::post('auth', [AuthController::class, 'authenticate']);
 Route::get('get-services', [FrontServiceController::class, 'index']);
 Route::get('get-latest-services', [FrontServiceController::class, 'latestServices']);
 
+#GET DATA FRONT PROJECTS
+Route::get('get-projects', [FrontProjectController::class, 'index']);
+Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
+
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -32,6 +38,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     #Project Routes
     Route::resource('projects', ProjectController::class);
+
+    #Articles Routes
+    Route::resource('articles', ArticleController::class);
 
     #Temp Image Routes
     Route::post('temp-images', [TempImageController::class, 'store']);
