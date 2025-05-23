@@ -216,6 +216,13 @@ class ServiceController extends Controller
             ]);
         }
 
+        #delete image service
+        $oldImage = $service->image;
+        if($oldImage != ''){
+            File::delete(public_path('uploads/services/large/'.$oldImage));
+            File::delete(public_path('uploads/services/small/'.$oldImage));
+        }
+
         #delete service data
         $service->delete();
 

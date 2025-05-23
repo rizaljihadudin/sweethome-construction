@@ -71,7 +71,7 @@ const Show = () => {
                                     <div className="card-body p-4">
                                         <div className="d-flex justify-content-between">
                                             <h4 className='h5'>Articles</h4>
-                                            <Link to={"/admin/projects/create"} className='btn btn-primary'>Create</Link>
+                                            <Link to={"/admin/articles/create"} className='btn btn-primary'>Create</Link>
                                         </div>
                                         <hr />
 
@@ -80,7 +80,7 @@ const Show = () => {
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Name</th>
-                                                    <th>Slug</th>
+                                                    {/* <th>Slug</th> */}
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -91,7 +91,7 @@ const Show = () => {
                                                         <tr key={index}>
                                                             <td>{index + 1}</td>
                                                             <td>{article.title}</td>
-                                                            <td>{article.slug}</td>
+                                                            {/* <td>{article.slug}</td> */}
                                                             <td>{article.status == 1 ? 'Active' : 'Inactive'}</td>
                                                             <td>
                                                                 <Link to={`/admin/articles/edit/${article.id}`} className='btn btn-primary'>

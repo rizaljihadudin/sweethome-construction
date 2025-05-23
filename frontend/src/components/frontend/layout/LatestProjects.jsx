@@ -30,7 +30,7 @@ const LatestProjects = () => {
                     <div className="row pt-4">
                         {
                             projects && projects.map((project, index) => (
-                                <div className="col-md-3 col-lg-3" key={index}>
+                                <div className="col-md-3 col-lg-3" key={`projects-${index}`}>
                                     <div className="item">
                                         <div className="service-image">
                                             <img src={`${fileUrl}/uploads/projects/small/${project.image}`} className='w-100' />

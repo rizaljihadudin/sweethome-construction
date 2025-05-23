@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\TempImage;
-use Illuminate\Contracts\Concurrency\Driver;
+use Intervention\Image\Drivers\Gd\Driver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -228,6 +228,14 @@ class ArticleController extends Controller
                 'message'   => 'Article Not Found'
             ]);
         }else{
+
+            #delete Article image
+            $oldImage   = $article->image;
+            if($oldImage != ''){
+                File::delete(public_path('uploads/articles/large/'.$oldImage));
+                File::delete(public_path('uploads/articles/small/'.$oldImage));
+            }
+
             $article->delete();
             return response()->json([
                 'success'   => true,

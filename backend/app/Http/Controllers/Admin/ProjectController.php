@@ -201,6 +201,13 @@ class ProjectController extends Controller
             ]);
         }
 
+        #delete image project
+        $oldImage   = $project->image;
+        if($oldImage != ''){
+            File::delete(public_path('uploads/projects/large/'.$oldImage));
+            File::delete(public_path('uploads/projects/small/'.$oldImage));
+        }
+
         #delete service data
         $project->delete();
 

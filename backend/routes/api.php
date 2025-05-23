@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
+use App\Http\Controllers\Front\ArticleController as FrontArticleController;
 use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\ServiceController as FrontServiceController;
 use Illuminate\Http\Request;
@@ -24,6 +25,10 @@ Route::get('get-latest-services', [FrontServiceController::class, 'latestService
 #GET DATA FRONT PROJECTS
 Route::get('get-projects', [FrontProjectController::class, 'index']);
 Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
+
+#GET DATA FRONT ARTICLES
+Route::get('get-articles', [FrontArticleController::class, 'index']);
+Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticles']);
 
 
 
