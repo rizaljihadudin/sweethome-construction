@@ -31,7 +31,7 @@ const LatestServices = () => {
                         {
                             services &&services.map((service, index) => {
                                 return (
-                                    <div className="col-md-3 col-lg-3" key={index}>
+                                    <div className="col-md-3 col-lg-3" key={`service-${index}`}>
                                         <div className="item">
                                             <div className="service-image">
                                                 <img src={`${fileUrl}/uploads/services/small/${service.image}`} className='w-100' />

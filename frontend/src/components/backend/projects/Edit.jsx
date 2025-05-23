@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form'
 import { Spinner } from 'react-bootstrap'
 
 const Edit = ({placeholder}) => {
-     const editor = useRef(null);
+    const editor = useRef(null);
     const [content, setContent] = useState('');
     const [project, setProject] = useState('');
     const [isDisable, setIsDisable] = useState(false);
