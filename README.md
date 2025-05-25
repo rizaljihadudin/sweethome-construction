@@ -29,6 +29,7 @@ This is a **Company Profile Website** built with a **separated frontend-backend 
 - API for Services (CRUD)
 - API for Articles (CRUD)
 - API for Projects (CRUD)
+- API for Testimonials
 
 ---
 
