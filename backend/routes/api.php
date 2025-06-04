@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Front\ArticleController as FrontArticleController;
 use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\ServiceController as FrontServiceController;
+use App\Http\Controllers\Front\TestimonialController as FrontTestimonialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,9 @@ Route::get('get-latest-projects', [FrontProjectController::class, 'latestProject
 Route::get('get-articles', [FrontArticleController::class, 'index']);
 Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticles']);
 
+#GET DATA TESTIMONIAL
+Route::get('get-testimonials', [FrontTestimonialController::class, 'index']);
+
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -49,4 +54,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     #Temp Image Routes
     Route::post('temp-images', [TempImageController::class, 'store']);
+
+    #Testimonial Routes
+    Route::resource('testimonials', TestimonialController::class);
 });

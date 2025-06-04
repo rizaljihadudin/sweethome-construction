@@ -53,7 +53,7 @@ const Blogs = () => {
                             <div className="row pt-3">
                                 {
                                     articles && articles.map((article, index) => (
-                                        <div className="col-md-4 mb-3">
+                                        <div className="col-md-4 mb-3" key={`articles-${index}`}>
                                             <div className="card shadow border-0">
                                                 <div className="card-img-top">
                                                     <img src={`${fileUrl}/uploads/articles/large/${article.image}`} alt="" className='w-100'/>

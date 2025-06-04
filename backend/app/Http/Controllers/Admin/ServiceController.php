@@ -17,9 +17,15 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Service::orderBy('created_at', 'desc')->get();
+
+        $query = Service::orderBy('created_at', 'desc');
+        if ($request->has('search') && !empty($request->search)) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $data = $query->get();
 
         return response()->json([
             'status'    => true,
@@ -230,6 +236,16 @@ class ServiceController extends Controller
         return response()->json([
             'status'    => true,
             'message'   => 'Services Deleted Successfully'
+        ]);
+    }
+
+
+    public function searchData(Request $request){
+        $data = Service::where('title', 'like', '%'.$request->keyword.'%')->get();
+        return response()->json([
+            'status'    => true,
+            'data'      => $data,
+            'message'   => 'Services Fetched Successfully'
         ]);
     }
 }
