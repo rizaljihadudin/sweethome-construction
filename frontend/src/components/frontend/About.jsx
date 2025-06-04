@@ -5,6 +5,7 @@ import {default as AboutSection} from './layout/About'
 import TeamImg1 from '../../assets/images/team1.jpg'
 import TeamImg2 from '../../assets/images/team2.jpg'
 import Hero from './layout/Hero'
+import ShowTestimonial from './layout/ShowTestimonial'
 
 const contents = {
     preHeading: 'Quality. Intregity. Value.',
@@ -119,6 +120,9 @@ const About = () => {
                             </div>
                         </div>
                     </section>
+
+                    {/* Testimonials  */}
+                    <ShowTestimonial/>
                 </main>
             <Footer/>
         </>

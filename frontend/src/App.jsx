@@ -27,6 +27,14 @@ import { default as ShowArticles } from './components/backend/articles/Show';
 import { default as EditArticle } from './components/backend/articles/Edit';
 import { default as CreateArticle } from './components/backend/articles/Create';
 
+// Testimonials
+import { default as ShowTestimonials } from './components/backend/testimonials/Show';
+import { default as EditTestimonials } from './components/backend/testimonials/Edit';
+import { default as CreateTestimonials } from './components/backend/testimonials/Create';
+
+// Error page
+import Error404 from './components/Error404';
+
 function App() {
 
   return (
@@ -88,8 +96,23 @@ function App() {
                             {/* Menu Create Service */}
                             <Route path='create' element={<CreateArticle />} />
                         </Route>
+
+                        {/* Route yang awalannya testimonials */}
+                        <Route path='testimonials'>
+                            {/* ..Child dari articles */}
+                            {/* Default index, show data articles */}
+                            <Route index element={<ShowTestimonials />} />
+                            {/* Menu Edit services */}
+                            <Route path='edit/:id' element={<EditTestimonials />} />
+                            {/* Menu Create Service */}
+                            <Route path='create' element={<CreateTestimonials />} />
+                        </Route>
                     </Route>
                 </Route>
+
+
+                {/* Error 404 not found */}
+                <Route path='/*' element={<Error404/>}/>
             </Routes>
             
         </BrowserRouter>
