@@ -59,8 +59,8 @@ const ShowTestimonial = () => {
                     >
                         { 
                             testimonials && testimonials.map((testi, index) => (
-                                    <SwiperSlide>
-                                        <div className="card shadow border-0" key={`testimonial-${index}`}>
+                                    <SwiperSlide key={`testimonial-${index}`}>
+                                        <div className="card shadow border-0" >
                                             <div className="card-body p-5">
                                                 <div className="rating">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">

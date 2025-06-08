@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\TempImageController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Front\ArticleController as FrontArticleController;
+use App\Http\Controllers\Front\MemberController as FrontMemberController;
 use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\ServiceController as FrontServiceController;
 use App\Http\Controllers\Front\TestimonialController as FrontTestimonialController;
@@ -23,6 +25,7 @@ Route::post('auth', [AuthController::class, 'authenticate']);
 #GET DATA FRONT SERVICES
 Route::get('get-services', [FrontServiceController::class, 'index']);
 Route::get('get-latest-services', [FrontServiceController::class, 'latestServices']);
+Route::get('get-service/{slug}', [FrontServiceController::class, 'service']);
 
 #GET DATA FRONT PROJECTS
 Route::get('get-projects', [FrontProjectController::class, 'index']);
@@ -34,6 +37,9 @@ Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticle
 
 #GET DATA TESTIMONIAL
 Route::get('get-testimonials', [FrontTestimonialController::class, 'index']);
+
+#GET DATA MEMBER
+Route::get('get-members', [FrontMemberController::class, 'index']);
 
 
 
@@ -57,4 +63,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     #Testimonial Routes
     Route::resource('testimonials', TestimonialController::class);
+
+    #Member Routes
+    Route::resource('members', MemberController::class);
 });

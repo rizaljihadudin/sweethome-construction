@@ -32,8 +32,17 @@ import { default as ShowTestimonials } from './components/backend/testimonials/S
 import { default as EditTestimonials } from './components/backend/testimonials/Edit';
 import { default as CreateTestimonials } from './components/backend/testimonials/Create';
 
+
+// Members
+import { default as ShowMembers } from './components/backend/members/Show';
+import { default as EditMembers } from './components/backend/members/Edit';
+import { default as CreateMembers } from './components/backend/members/Create';
+
 // Error page
 import Error404 from './components/Error404';
+
+// Service Detail
+import ServiceDetail from './components/frontend/ServiceDetail';
 
 function App() {
 
@@ -44,10 +53,13 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/services' element={<Services />} />
+                <Route path='/services/:slug' element={<ServiceDetail />} />
                 <Route path='/projects' element={<Projects />} />
                 <Route path='/blogs' element={<Blogs />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/admin/login' element={<Login />} />
+
+
 
 
                 {/* wrapped route using children */}
@@ -106,6 +118,17 @@ function App() {
                             <Route path='edit/:id' element={<EditTestimonials />} />
                             {/* Menu Create Service */}
                             <Route path='create' element={<CreateTestimonials />} />
+                        </Route>
+
+                        {/* Route yang awalannya members */}
+                        <Route path='members'>
+                            {/* ..Child dari articles */}
+                            {/* Default index, show data articles */}
+                            <Route index element={<ShowMembers />} />
+                            {/* Menu Edit services */}
+                            <Route path='edit/:id' element={<EditMembers />} />
+                            {/* Menu Create Service */}
+                            <Route path='create' element={<CreateMembers />} />
                         </Route>
                     </Route>
                 </Route>
