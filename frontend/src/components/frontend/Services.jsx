@@ -4,6 +4,7 @@ import Footer from './layout/Footer'
 import Hero from './layout/Hero'
 import ServiceImg from '../../assets/images/construction1.jpg'
 import { baseUrl, fileUrl } from '../../config'
+import { Link } from 'react-router-dom'
 
 const contents = {
     preHeading: 'Quality. Intregity. Value.',
@@ -61,7 +62,7 @@ const Services = () => {
                                                                 {service.short_desc}
                                                             </p>
                                                         </div>
-                                                        <a href="" className='btn btn-primary'>Read More</a>
+                                                        <Link to={`/services/${service.slugs}`} className='btn btn-primary'>Read More</Link>
                                                     </div>
                     
                                                 </div>

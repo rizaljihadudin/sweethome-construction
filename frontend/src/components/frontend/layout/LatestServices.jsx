@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { baseUrl, fileUrl } from '../../../config';
+import { Link } from 'react-router-dom';
 
 const LatestServices = () => {
 
@@ -45,7 +46,7 @@ const LatestServices = () => {
                                                         {service.short_desc}
                                                     </p>
                                                 </div>
-                                                <a href="" className='btn btn-primary'>Read More</a>
+                                                <Link to={`/services/${service.slug}`} className='btn btn-primary'>Read More</Link>
                                             </div>
 
                                         </div>
