@@ -43,6 +43,7 @@ import Error404 from './components/Error404';
 
 // Service Detail
 import ServiceDetail from './components/frontend/ServiceDetail';
+import ProjectDetail from './components/frontend/ProjectDetail';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
                 <Route path='/services' element={<Services />} />
                 <Route path='/services/:slug' element={<ServiceDetail />} />
                 <Route path='/projects' element={<Projects />} />
+                <Route path='/projects/:slug' element={<ProjectDetail />} />
                 <Route path='/blogs' element={<Blogs />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/admin/login' element={<Login />} />

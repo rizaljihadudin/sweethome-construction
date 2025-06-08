@@ -62,7 +62,7 @@ const Services = () => {
                                                                 {service.short_desc}
                                                             </p>
                                                         </div>
-                                                        <Link to={`/services/${service.slugs}`} className='btn btn-primary'>Read More</Link>
+                                                        <Link to={`/services/${service.slug}`} className='btn btn-primary'>Read More</Link>
                                                     </div>
                     
                                                 </div>

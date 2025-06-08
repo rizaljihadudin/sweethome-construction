@@ -4,6 +4,7 @@ import Footer from './layout/Footer'
 import Hero from './layout/Hero'
 import ProjectImg from '../../assets/images/construction2.jpg'
 import { baseUrl, fileUrl } from '../../config'
+import { Link } from 'react-router-dom'
 
 const contents = {
     preHeading: 'Quality. Intregity. Value.',
@@ -60,7 +61,7 @@ const Projects = () => {
                                                         {project.short_desc}
                                                     </p>
                                                 </div>
-                                                <a href="" className='btn btn-primary small'>Read More</a>
+                                                <Link to={`/projects/${project.slug}`} className='btn btn-primary small'>Read More</Link>
                                             </div>
 
                                         </div>
