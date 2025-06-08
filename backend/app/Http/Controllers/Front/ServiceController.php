@@ -33,4 +33,23 @@ class ServiceController extends Controller
             'message'   => 'Succes get latest services'
         ]);
     }
+
+    #return single service
+    public function service($slug) {
+        $services = Service::where('slug', $slug)->first();
+
+        if(!$services) {
+            return response()->json([
+                'status'    => false,
+                'message'   => 'Service not found'
+            ]);
+        }else{
+            return response()->json([
+                'status'    => true,
+                'data'      => $services,
+                'message'   => 'Succes get single service'
+            ]);
+        }
+
+    }
 }
