@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { baseUrl, fileUrl } from '../../../config';
+import { Link } from 'react-router-dom';
 
 const LatestProjects = () => {
 
@@ -44,7 +45,7 @@ const LatestProjects = () => {
                                                     {project.short_desc}
                                                 </p>
                                             </div>
-                                            <a href="" className='btn btn-primary small'>Read More</a>
+                                            <Link to={`projects/${project.slug}`} className='btn btn-primary small'>Read More</Link>
                                         </div>
 
                                     </div>

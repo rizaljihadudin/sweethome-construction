@@ -30,6 +30,7 @@ Route::get('get-service/{slug}', [FrontServiceController::class, 'service']);
 #GET DATA FRONT PROJECTS
 Route::get('get-projects', [FrontProjectController::class, 'index']);
 Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
+Route::get('get-project/{slug}', [FrontProjectController::class, 'project']);
 
 #GET DATA FRONT ARTICLES
 Route::get('get-articles', [FrontArticleController::class, 'index']);

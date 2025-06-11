@@ -32,4 +32,21 @@ class ProjectController extends Controller
             'message'   => 'Succes get latest Projects'
         ]);
     }
+
+    public function project($slug) {
+        $data = Project::where('slug', $slug)->first();
+
+        if($data == null){
+            return response()->json([
+                'status'    => false,
+                'message'   => 'Project not found'
+            ]);
+        }else{
+            return response()->json([
+                'status'    => true,
+                'data'      => $data,
+                'message'   => 'Succes get single Project'
+            ]);
+        }
+    }
 }
